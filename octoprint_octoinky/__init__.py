@@ -10,7 +10,7 @@ inky.setup()
 
 class OctoInkyPlugin(octoprint.plugin.StartupPlugin):
     def on_after_startup(self):
-        startup_image = Image.open(os.path.join(PATH, "static/img/phat/startup.png"))
+        startup_image = Image.open(os.path.join(self.get_plugin_data_folder(), "static/img/phat/startup.png"))
         inky.set_image(startup_image)
         inky.show(busy_wait=False)
         self._logger.info("Inky PHAT should be initialised!")
